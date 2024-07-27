@@ -1,0 +1,28 @@
+.header {
+    padding: 16px 0;
+    border-bottom: 1px solid var(--border-primary);
+}
+
+.headerLogoWrap {
+    display: flex;
+    align-items: center;
+}
+
+.headerLogoWrap>* {
+    margin-right: 5px;
+}
+
+.headerUserWrap {
+    display: flex;
+    justify-content: flex-end;
+    height: 32px;
+}
+
+.headerUserWrap>* {
+    margin-left: 10px;
+}
+
+.bars {
+    margin: auto;
+    cursor: pointer;
+}

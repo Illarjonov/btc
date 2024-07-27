@@ -1,0 +1,5 @@
+.paper {
+    border-radius: 12px;
+    border: solid 1px var(--border-primary);
+    background: var(--background-tertiary);
+}

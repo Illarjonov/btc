@@ -1,0 +1,50 @@
+.text {
+    font-style: normal;
+    font-family: "Roboto","Helvetica","Arial",sans-serif;
+    margin: 0;
+    transition: color 0.2s ease;
+}
+
+.text.inherit {
+    color: inherit;
+}
+
+.text.primary {
+    color: var(--text-primary);
+}
+
+.text.secondary {
+    color: var(--text-secondary);
+}
+
+.text.tertiary {
+    color: var(--text-tertiary);
+}
+
+.text.success {
+    color: var(--text-success);
+}
+
+.text.warning {
+    color: var(--text-warning);
+}
+
+.text.error {
+    color: var(--text-error);
+}
+
+.text.orange {
+    color: var(--text-orange);
+}
+
+.text a {
+    text-decoration: none;
+    color: var(--text-accent);
+}
+
+.text code {
+    border-radius: 2px;
+    background: var(--background-inline-code);
+    color: var(--text-inline-code);
+    padding: 2px 4px;
+}

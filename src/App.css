@@ -1,3 +1,58 @@
-.App {
-  text-align: center;
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    transition: background 0.2s ease;
+    background: var(--background-primary);
+    -webkit-font-smoothing: antialiased;
+    min-height: -webkit-fill-available;
+}
+
+html {
+    height: -webkit-fill-available;
+}
+
+button {
+    cursor: pointer;
+    border: none;
+}
+
+button:disabled {
+    cursor: default;
+}
+
+:root {
+    --white: #fff;
+    --gray-text: #18181b;
+    --text-primary: #18181b;
+    --text-secondary: #60606c;
+    --text-tertiary: #93939f;
+    --text-accent: #539db8;
+    --text-accent-hover: #ff9d32;
+    --text-success: #2e7d32;
+    --text-error: #bd2828;
+    --text-warning: #7e3901;
+    --text-inline-code: #b44437;
+    --text-orange: #ff9d32;
+    --border-primary: #ececee;
+    --border-accent: #539db8;
+    --background-primary: #fafafa;
+    --background-secondary: #efefef;
+    --background-secondary-hover: #ff9d32;
+    --background-tertiary: #fff;
+    --background-selected: #efefef;
+    --background-disabled: #efeff1;
+    --background-critical: #d74242;
+    --background-critical-hover: #d22d2d;
+    --background-inline-code: #f7eae8;
+    --background-yellow: #bad8e3;
+    --background-orange: #fdf0e6;
+    --background-notification-success: #e1f4e2;
+    --background-notification-error: #f8dddd;
+    --background-notification-warning: #ffe8d7;
+    --lesson-unpublished: #ff9d32;
 }

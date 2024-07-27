@@ -1,0 +1,77 @@
+.button {
+    display: flex;
+    text-transform: none;
+    width: fit-content;
+    border-radius: 50px;
+    align-items: center;
+    color: var(--white);
+    transition: background 0.2s ease;
+}
+
+.large, .medium, .small {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.large {
+    padding: 16px 24px;
+}
+.large .startIcon {
+    margin-right: 8px;
+}
+.large .endIcon {
+    margin-left: 8px;
+}
+
+.medium {
+    padding: 8px 16px;
+}
+.medium .startIcon {
+    margin-right: 4px;
+}
+.medium .endIcon {
+    margin-left: 4px;
+}
+
+.small {
+    padding: 4px 8px;
+}
+.small .startIcon {
+    margin-right: 4px;
+}
+.small .endIcon {
+    margin-left: 4px;
+}
+
+.primary {
+    background: var(--text-accent);
+}
+.primary:hover {
+    background: var(--text-accent-hover);
+}
+
+.secondary {
+    background: var(--background-secondary);
+    color: var(--text-primary);
+}
+
+.secondary:hover {
+    transition: background 0.2s ease;
+    background: var(--background-secondary-hover);
+}
+
+.critical {
+    background: var(--background-critical);
+}
+.critical:hover {
+    background: var(--background-critical-hover);
+}
+
+.disabled {
+    background: var(--background-disabled);
+    color: var(--text-tertiary)
+}
+.disabled:hover {
+    background: var(--background-disabled);
+}
