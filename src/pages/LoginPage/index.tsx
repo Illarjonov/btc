@@ -8,9 +8,10 @@ const LoginPage = () => {
     const navigate = useNavigate();
 
     useEffect(() => {
-        if (user) {
-            navigate(PAGES.home);
-        }
+        if (!user) return;
+
+        navigate(PAGES.home);
+
     }, [user]);
 
     const handleLogin = () => {

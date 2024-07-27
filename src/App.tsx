@@ -1,11 +1,12 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import './App.css';
 import { Routes, Route, useNavigate } from 'react-router-dom';
 
-import LoginPage from 'pages/LoginPage';
-import DashboardPage from 'pages/DashboardPage';
-import { PAGES } from 'shared/configs/pages';
-import { useAuthContext } from 'contexts/AuthContext';
+import LoginPage from './pages/LoginPage';
+// import LoginPage from '@/pages/LoginPage';
+import DashboardPage from './pages/DashboardPage';
+import { PAGES } from './shared/configs/pages';
+import { useAuthContext } from './contexts/AuthContext';
 
 const PrivateRoute = ({ children }: { children: JSX.Element; }): JSX.Element => {
     const { user } = useAuthContext();

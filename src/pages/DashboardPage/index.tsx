@@ -6,7 +6,6 @@ import { getBitcontPrice } from 'store/bitcoin/reducers';
 import { getBitcoinHistory } from 'store/bitcoin/selectors';
 
 const DashboardPage = () => {
-
     const dispatch = useAppDispatch();
 
     const bitcoinHistory = useAppSelector(getBitcoinHistory);
@@ -20,7 +19,7 @@ const DashboardPage = () => {
     console.log(bitcoinHistory);
 
     return (<>
-        123
+
     </>);
 };
 

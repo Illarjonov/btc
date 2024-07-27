@@ -1,0 +1,23 @@
+.align-x-left {
+    justify-self: start;
+}
+
+.align-x-center {
+    justify-self: center;
+}
+
+.align-x-right {
+    justify-self: end;
+}
+
+.align-y-top {
+    align-self: start;
+}
+
+.align-y-center {
+    align-self: center;
+}
+
+.align-y-bottom {
+    align-self: end;
+}
