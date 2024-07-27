@@ -1,26 +1,41 @@
-import React, { useCallback } from 'react';
+import React, { useEffect, useState } from 'react';
 import './App.css';
-import useInterval from 'shared/hooks/useInterval';
-import { useAppDispatch, useAppSelector } from 'shared/hooks/redux';
-import { getBitcontPrice } from 'store/bitcoin/reducers';
-import { getBitcoinHistory } from 'store/bitcoin/selectors';
-import useBitcoinData from 'shared/helpers/useBitcoinData';
+import { Routes, Route, useNavigate } from 'react-router-dom';
+
+import LoginPage from 'pages/LoginPage';
+import DashboardPage from 'pages/DashboardPage';
+import { PAGES } from 'shared/configs/pages';
+import { useAuthContext } from 'contexts/AuthContext';
+
+const PrivateRoute = ({ children }: { children: JSX.Element; }): JSX.Element => {
+    const { user } = useAuthContext();
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        if (user) return;
+
+        navigate(PAGES.login);
+    }, [user]);
+
+    return children;
+};
+
 
 const App = () => {
-    const dispatch = useAppDispatch();
 
-    const bitcoinHistory = useAppSelector(getBitcoinHistory);
-
-    const handleFetchBitcoinPrice = useCallback(() => {
-        dispatch(getBitcontPrice());
-    }, [dispatch]);
-
-    useInterval(handleFetchBitcoinPrice, 5000);
-
-    console.log(bitcoinHistory);
     return (
         <div className="App">
-            {/* {data.bpi.EUR.rate} */}
+            <Routes>
+                <Route
+                    path={PAGES.home}
+                    element={
+                        <PrivateRoute>
+                            <DashboardPage />
+                        </PrivateRoute>
+                    }
+                />
+                <Route path={PAGES.login} element={<LoginPage />} />
+            </Routes>
         </div>
     );
 };
