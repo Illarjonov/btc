@@ -1,4 +1,4 @@
-enum BPI {
+export enum BPI {
     USD = 'USD',
     EUR = 'EUR',
     GBP = 'GBP',
@@ -17,7 +17,7 @@ export type Currency = {
     rate_float: number;
 }
 
-export type BitcoinPriceResponse = {
+export type BitcoinPrice = {
     time: Time;
     disclaimer: string;
     chartName: string;
@@ -25,6 +25,9 @@ export type BitcoinPriceResponse = {
         [currency in BPI]: Currency;
     };
 }
-// export type BitcoinPriceResponse = {
-//     // ... структура ответа от API Coindesk
-// }
+
+export type BitcoinState = {
+    bitcoinHistory: BitcoinPrice[];
+    isLoading: boolean;
+    error: string | null;
+};
