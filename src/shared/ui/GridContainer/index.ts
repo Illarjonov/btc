@@ -1,2 +1,1 @@
-// export { default } from './GridContainer';
-export { };
+export { default } from './GridContainer';

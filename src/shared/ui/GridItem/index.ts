@@ -1,2 +1,1 @@
-// export { default } from './GridItem';
-export { };
+export { default } from './GridItem';
