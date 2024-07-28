@@ -6,11 +6,12 @@ import DashboardPage from './pages/DashboardPage';
 import { PAGES } from './shared/configs/pages';
 import { useAuthContext } from './contexts/AuthContext';
 import Layout from 'components/Layout';
-import { useAppDispatch } from 'shared/hooks/redux';
+import { useAppDispatch, useAppSelector } from 'shared/hooks/redux';
 import { getBitcontPrice } from 'store/bitcoin/reducers';
 import useInterval from 'shared/hooks/useInterval';
 
 import './styles/global.css';
+import { getBitcoinHistory } from 'store/bitcoin/selectors';
 
 const PrivateRoute = ({ children }: { children: JSX.Element; }): JSX.Element => {
     const { user } = useAuthContext();
@@ -29,6 +30,7 @@ const PrivateRoute = ({ children }: { children: JSX.Element; }): JSX.Element => 
 const App = () => {
     const dispatch = useAppDispatch();
     const refetchBitcoinPriceDelay = 30 * 1000; // 30 сек из документации coindesk
+    const bitcoinHistory = useAppSelector(getBitcoinHistory);
 
     const handleFetchBitcoinPrice = useCallback(() => {
         dispatch(getBitcontPrice());
@@ -36,6 +38,11 @@ const App = () => {
 
     //начать собирать статистику в моменте появления на странице /login
     useInterval(handleFetchBitcoinPrice, refetchBitcoinPriceDelay);
+
+    useEffect(() => {
+        if (bitcoinHistory.length) return;
+        handleFetchBitcoinPrice();
+    }, []);
 
     return (
         <Layout>

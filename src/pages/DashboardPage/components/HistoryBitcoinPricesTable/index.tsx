@@ -28,7 +28,7 @@ const HistoryBitcoinPricesTable = () => {
                 [BPI.GBP]: bpi.GBP.rate,
             }));
     }, [bitcoinHistory]);
-
+    if (!bitcoinHistory.length) return null;
     return <Table columns={columns} data={data} className={styles.table} />;
 };
 

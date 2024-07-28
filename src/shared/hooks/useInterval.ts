@@ -8,6 +8,7 @@ const useInterval = (callback: () => void, delay: number) => {
     }, [callback]);
 
     useEffect(() => {
+        //можно переписать на web workers, чтобы интервал отрабатывал четко по времени
         const id = setInterval(() => savedCallback.current && savedCallback.current(), delay);
         return () => {
             clearInterval(id);

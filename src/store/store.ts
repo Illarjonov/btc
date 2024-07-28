@@ -4,19 +4,19 @@ import { configureStore, createAsyncThunk } from '@reduxjs/toolkit';
 import { bitcoinSlice } from './bitcoin/slice';
 
 //@todo: fix type
-export const makeStore = (): any =>
-    configureStore({
-        reducer: {
-            [bitcoinSlice.reducerPath]: bitcoinSlice.reducer,
-        },
-        middleware: (getDefaultMiddleware) => getDefaultMiddleware(),
-    });
+export const store: any = configureStore({
+    reducer: {
+        [bitcoinSlice.reducerPath]: bitcoinSlice.reducer,
+    },
+    middleware: (getDefaultMiddleware) => getDefaultMiddleware(),
+});
 
-// Infer the type of makeStore
-export type AppStore = ReturnType<typeof makeStore>;
+// Get the type of our store variable
+export type AppStore = typeof store
 // Infer the `RootState` and `AppDispatch` types from the store itself
-export type RootState = ReturnType<AppStore['getState']>;
-export type AppDispatch = AppStore['dispatch'];
+export type RootState = ReturnType<AppStore['getState']>
+// Inferred type: {posts: PostsState, comments: CommentsState, users: UsersState}
+export type AppDispatch = AppStore['dispatch']
 
 export const createAppAsyncThunk = createAsyncThunk.withTypes<{
     state: RootState;
