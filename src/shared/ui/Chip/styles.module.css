@@ -1,6 +1,0 @@
-.chip {
-    padding: 4px;
-    border-radius: 60px;
-    background: var(--background-secondary);
-    transition: background 0.2s ease;
-}

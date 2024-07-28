@@ -1,0 +1,15 @@
+.input {
+    display: block;
+    padding: 0;
+    border: none;
+    resize: none;
+    background: transparent;
+    width: 100%;
+    height: fit-content;
+    font-family: "Roboto","Helvetica","Arial",sans-serif;
+    text-decoration: none;
+}
+
+.input:focus {
+    outline: none;
+}

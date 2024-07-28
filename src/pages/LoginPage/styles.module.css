@@ -1,0 +1,12 @@
+.container {
+    height: 100vh;
+}
+
+.loginForm {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+    padding: 10px;
+    gap: 10px;
+}

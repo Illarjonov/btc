@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useCallback, useEffect } from 'react';
 import { Routes, Route, useNavigate } from 'react-router-dom';
 
 import LoginPage from './pages/LoginPage';
@@ -6,8 +6,11 @@ import DashboardPage from './pages/DashboardPage';
 import { PAGES } from './shared/configs/pages';
 import { useAuthContext } from './contexts/AuthContext';
 import Layout from 'components/Layout';
+import { useAppDispatch } from 'shared/hooks/redux';
+import { getBitcontPrice } from 'store/bitcoin/reducers';
+import useInterval from 'shared/hooks/useInterval';
 
-import './App.css';
+import './styles/global.css';
 
 const PrivateRoute = ({ children }: { children: JSX.Element; }): JSX.Element => {
     const { user } = useAuthContext();
@@ -24,6 +27,16 @@ const PrivateRoute = ({ children }: { children: JSX.Element; }): JSX.Element => 
 
 
 const App = () => {
+    const dispatch = useAppDispatch();
+    const refetchBitcoinPriceDelay = 30 * 1000; // 30 сек из документации coindesk
+
+    const handleFetchBitcoinPrice = useCallback(() => {
+        dispatch(getBitcontPrice());
+    }, [dispatch]);
+
+    //начать собирать статистику в моменте появления на странице /login
+    useInterval(handleFetchBitcoinPrice, refetchBitcoinPriceDelay);
+
     return (
         <Layout>
             <Routes>

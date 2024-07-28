@@ -1,4 +1,5 @@
-import React, { createContext, useState, useEffect, useCallback, useContext } from 'react';
+import React, { createContext, useState, useCallback, useContext } from 'react';
+
 import { LOCAL_STORAGE_KEYS } from 'shared/configs/localStorageKeys';
 import { getLocalStorage, removeLocalStorage, setLocalStorage } from 'shared/utils/localStorage';
 

@@ -1,26 +1,23 @@
-import React, { useCallback } from 'react';
+import React from 'react';
 
-import useInterval from 'shared/hooks/useInterval';
-import { useAppDispatch, useAppSelector } from 'shared/hooks/redux';
-import { getBitcontPrice } from 'store/bitcoin/reducers';
-import { getBitcoinHistory } from 'store/bitcoin/selectors';
+import GridContainer from 'shared/ui/GridContainer';
+import GridItem from 'shared/ui/GridItem';
+import HistoryBitcoinPricesTableMemo from './components/HistoryBitcoinPricesTable';
+import CurrentBitcoinPriceMemo from './components/CurrentBitcoinPrice';
+
+import styles from './styles.module.css';
 
 const DashboardPage = () => {
-    const dispatch = useAppDispatch();
-
-    const bitcoinHistory = useAppSelector(getBitcoinHistory);
-
-    const handleFetchBitcoinPrice = useCallback(() => {
-        dispatch(getBitcontPrice());
-    }, [dispatch]);
-
-    useInterval(handleFetchBitcoinPrice, 5000);
-
-    console.log(bitcoinHistory);
-
-    return (<>
-
-    </>);
+    return (
+        <GridContainer className={styles.container}>
+            <GridItem span={12} alignX="center" alignY="center">
+                <CurrentBitcoinPriceMemo />
+            </GridItem>
+            <GridItem span={12} alignX="center" alignY="center">
+                <HistoryBitcoinPricesTableMemo />
+            </GridItem>
+        </GridContainer>
+    );
 };
 
 export default DashboardPage;

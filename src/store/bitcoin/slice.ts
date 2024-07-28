@@ -19,7 +19,7 @@ export const bitcoinSlice = createSlice({
     extraReducers(builder: ActionReducerMapBuilder<BitcoinState>) {
         builder.addCase(getBitcontPrice.fulfilled, (state, { payload }) => {
             state.isLoading = false;
-            state.bitcoinHistory = [...state.bitcoinHistory, payload];
+            state.bitcoinHistory = [payload, ...state.bitcoinHistory];
             state.error = '';
         });
         builder.addCase(getBitcontPrice.pending, (state) => {

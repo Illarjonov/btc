@@ -24,9 +24,9 @@
     },
     "include": [
         "env.d.ts",
-        "styles.d.ts",
         "**/*.ts",
-        "**/*.tsx"
+        "**/*.tsx",
+        "**/*.d.ts",
     ],
     "exclude": [
         "node_modules"

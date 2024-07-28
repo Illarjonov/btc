@@ -1,8 +1,9 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { configureStore, createAsyncThunk } from '@reduxjs/toolkit';
 
 import { bitcoinSlice } from './bitcoin/slice';
-import thunk from 'redux-thunk'; // или другой middleware
 
+//@todo: fix type
 export const makeStore = (): any =>
     configureStore({
         reducer: {

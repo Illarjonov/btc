@@ -13,7 +13,7 @@ type Props = {
 };
 
 const Heading = ({ level, children, className }: Props) => {
-    const Tag: any = `h${level}`;
+    const Tag = `h${level}` as keyof JSX.IntrinsicElements;
 
     return (
         <Tag className={classNames(styles.heading, variants[`h${level}`], className)} >
